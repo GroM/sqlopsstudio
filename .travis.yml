@@ -40,6 +40,10 @@ before_install:
       sh -e /etc/init.d/xvfb start;
       sleep 3;
     fi
+  - export GITHUB_TOKEN=
+  - npm install --ignore-scripts vscode-ripgrep
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - ~/.cargo/bin/cargo install --root ./node_modules/vscode-ripgrep ripgrep
 
 install:
   - ./scripts/npm.sh install
